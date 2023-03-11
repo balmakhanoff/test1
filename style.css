@@ -1,0 +1,207 @@
+/* COMMON SETTINGS */
+:root {
+    --color-bg: #F5F5EB;
+    --color-text-hover: #4474C1;
+    --color-text-black: #000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: var(--color-bg);
+}
+
+.container {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* COMMON SETTINGS */
+
+/* STYLIZATION */
+h1,
+h2 {
+    font-weight: 900;
+
+}
+
+h1 {
+
+    padding: 2rem 0 2rem 0;
+    font-size: 2rem;
+}
+
+h2 {
+    margin: 1.5rem 0;
+    font-size: 1.5rem;
+}
+
+h2,
+.open-close-ico {
+    display: flex;
+    align-items: center;
+    color: var(--color-text-hover);
+    fill: var(--color-text-hover);
+}
+
+.mems {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+svg {
+    width: 2rem;
+    height: 2rem;
+    opacity: 0;
+}
+
+section {
+    padding: 0;
+    transition: all .4s linear;
+}
+
+.img-box {
+    position: relative;
+    width: 25rem;
+    height: 25rem;
+    overflow: hidden;
+    display: none;
+    margin: 0 auto 2rem;
+}
+
+.img-box img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    animation: appearanceImg 0.5s;
+}
+/* STYLIZATION */
+
+/* INTERACTIVE */
+input {
+    display: none;
+}
+
+input:checked~.img-box,
+input:checked~* h2 {
+    display: block;
+    color: var(--color-text-black);
+}
+
+input:checked~.card-header>.open-close-ico>.svg-1 {
+    display: none;
+}
+
+.svg-2 {
+    display: none;
+}
+
+input:checked~.card-header>.open-close-ico>.svg-2 {
+    display: block;
+    fill: var(--color-text-black);
+    animation: rotateIco 1s;
+}
+
+.mems:hover h2,
+.mems:hover svg {
+    color: var(--color-text-black);
+    opacity: 1;
+}
+
+.mems:hover * {
+    cursor: pointer;
+    fill: var(--color-text-black);
+}
+
+/* INTERACTIVE */
+
+/* ADAPTIVE AND ANIMATION */
+@media screen and (min-width: 1080px) {
+
+    section:hover .img-box {
+        display: block;
+    }
+
+    section:hover label>div.card-header>div.open-close-ico>.svg-1 {
+        display: none;
+    }
+
+    section:hover label>div.card-header>div.open-close-ico>.svg-2 {
+        animation: rotateIco 1s;
+        display: block;
+    }
+
+    html,
+    body {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 1180px) {
+
+    html,
+    body {
+        font-size: 13px;
+    }
+
+    .mems {
+        width: 70%;
+    }
+
+    .container {
+        padding: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 568px) {
+
+    html,
+    body {
+        font-size: 10px;
+    }
+
+    .mems {
+        width: 100%;
+    }
+
+}
+
+@keyframes appearanceImg {
+    0% {
+        opacity: 0;
+    }
+
+    33% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes rotateIco {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ADAPTIVE AND ANIMATION */
